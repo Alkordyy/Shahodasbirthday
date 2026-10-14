@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday 🎂💕</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #ffe0ed, #f8b9d5, #fff0f6);
+            color: #9d2459;
+            text-align: center;
+        }
+
+        .hearts {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            animation: floatUp linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            15% { opacity: 0.8; }
+            100% {
+                transform: translateY(-115vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            width: min(90%, 650px);
+            margin: 0 auto;
+            padding: 55px 0 40px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #ffffffb8;
+            border: 1px solid #fff;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(35px, 8vw, 60px);
+            line-height: 1.4;
+            margin-bottom: 15px;
+            color: #c02d70;
+            text-shadow: 2px 3px 0 #fff;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            line-height: 1.9;
+            margin: 0 auto 25px;
+            max-width: 480px;
+        }
+
+        .cake {
+            font-size: 100px;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+            filter: drop-shadow(0 10px 12px #d9578d40);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .card {
+            background: #ffffffd9;
+            border: 2px solid #fff;
+            border-radius: 28px;
+            padding: 28px 22px;
+            box-shadow: 0 15px 40px #b83a7030;
+            margin-top: 25px;
+        }
+
+        .card h2 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 17px;
+            line-height: 2;
+        }
+
+        button {
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #f04491, #c72b70);
+            color: white;
+            padding: 15px 28px;
+            font-size: 17px;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+            margin-top: 24px;
+            box-shadow: 0 7px 18px #c72b7040;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-4px) scale(1.03);
+        }
+
+        #surprise {
+            display: none;
+            margin-top: 25px;
+            padding: 22px;
+            border-radius: 20px;
+            background: #fff0f7;
+            animation: appear 0.7s ease;
+        }
+
+        #surprise p {
+            line-height: 2.1;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gallery-title {
+            margin: 35px 0 15px;
+        }
+
+        .memories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .memory {
+            min-height: 105px;
+            background: #ffffffb8;
+            border: 2px solid white;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 13px;
+            padding: 10px 5px;
+        }
+
+        .memory span {
+            font-size: 30px;
+        }
+
+        footer {
+            padding: 30px 10px 15px;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        .confetti {
+            position: fixed;
+            top: -20px;
+            z-index: 10;
+            pointer-events: none;
+            animation: fall 3s linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .container {
+                padding-top: 35px;
+            }
+
+            .card {
+                padding: 22px 16px;
+            }
+
+            .memories {
+                gap: 7px;
+            }
+
+            .memory {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hearts" id="hearts"></div>
+
+    <main class="container">
+
+        <div class="tag">🎀 A SPECIAL DAY FOR A SPECIAL PERSON 🎀</div>
+
+        <h1>
+            Happy Birthday<br>
+            يا <span id="friendName">شهودة</span> 💗
+        </h1>
+
+        <p class="subtitle">
+         معلش بقا متأخرة بس على ما اخدت الكورس 😂😂❤️ <br>
+        </p>
+
+        <div class="cake">🎂</div>
+
+        <section class="card">
+            <h2>كل سنة وانتي طيبة يا قمر! 🌷</h2>
+
+            <p>
+                أتمنى سنتك الجديدة تكون مليانة فرحة ونجاح،
+                وتحققي فيها كل حاجة نفسك فيها،
+                وتفضلي دايمًا بتضحكي ومبسوطة.
+                <br>
+                انتي تستاهلي كل حاجة حلوة في الدنيا. 💖
+            </p>
+
+            <button onclick="openSurprise()">
+                دوسي هنا عشان المفاجأة 🎁
+            </button>
+
+            <div id="surprise">
+                <h2>💌 رسالة مخصوص ليكي</h2>
+
+                <p>
+                    كل سنة و انتي طيبة يا مراتي😂😍 و ان شاء الله أشوفك دايمًا
+                   مبسوطة وناجحة وتحققي كل أحلامك ❤️❤️❤️
+                    <br><br>
+                    بحبك يا شهودة 🥹💕
+                    <br><br>
+                    <strong>عيد ميلاد سعيد يا أجمل شهودة 🎂🌸</strong>
+                </p>
+            </div>
+        </section>
+
+        <h2 class="gallery-title">حاجات حلوة شبهك 🎀</h2>
+
+        <div class="memories">
+            <div class="memory">
+                <span>🌷</span>
+                ضحكتك الحلوة
+            </div>
+
+        
+
+        <button onclick="celebrate()">
+            اضغطي عشان نحتفل 🎉
+        </button>
+
+        <footer>
+            Made with love 💗 مخصوص عشان يومك يبقى أحلى
+        </footer>
+
+    </main>
+
+    <script>
+     
+        const name = "شهودة.";
+        document.getElementById("friendName").textContent = name;
+
+        // قلوب بتتحرك في الخلفية
+        const heartsContainer = document.getElementById("hearts");
+        const heartSymbols = ["💗", "💕", "💖", "🌸", "✨", "💘"];
+
+        for (let i = 0; i < 25; i++) {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.textContent =
+                heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+
+            heart.style.left = Math.random() * 100 + "%";
+            heart.style.fontSize = (15 + Math.random() * 22) + "px";
+            heart.style.animationDuration = (7 + Math.random() * 10) + "s";
+            heart.style.animationDelay = (Math.random() * 10) + "s";
+
+            heartsContainer.appendChild(heart);
+        }
+
+        // إظهار رسالة المفاجأة
+        function openSurprise() {
+            const surprise = document.getElementById("surprise");
+
+            surprise.style.display = "block";
+            celebrate();
+
+            surprise.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+
+        // احتفال بالقصاصات الملونة
+        function celebrate() {
+            const symbols = ["🎉", "💖", "✨", "🎊", "🌸", "💕"];
+
+            for (let i = 0; i < 70; i++) {
+                const piece = document.createElement("div");
+                piece.className = "confetti";
+                piece.textContent =
+                    symbols[Math.floor(Math.random() * symbols.length)];
+
+                piece.style.left = Math.random() * 100 + "vw";
+                piece.style.fontSize = (14 + Math.random() * 18) + "px";
+                piece.style.animationDuration =
+                    (2 + Math.random() * 3) + "s";
+                piece.style.animationDelay = Math.random() + "s";
+
+                document.body.appendChild(piece);
+
+                setTimeout(() => piece.remove(), 5500);
+            }
+        }
+    </script>
+
+</body>
+</html>
